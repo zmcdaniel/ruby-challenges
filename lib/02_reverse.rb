@@ -11,14 +11,24 @@
 
 
 def reverse()
-  puts "Enter a string"
-  s = gets
-  temp = ''
-  for i in (0..s.length-1) do
-    temp += s[-1-i]
+
+  puts 'Enter a string:'
+  string = gets.chomp
+  
+  temp_array = []
+  reverse_array = []
+
+  i = string.length
+
+  temp_array.push(string.split(""))
+
+  temp_array.each do |char|
+    while i >= 0
+      reverse_array.push(char[i])
+      i -= 1
+    end
   end
-  s = temp
-  return s
+  reverse_array.join
 end
 
 puts reverse()
