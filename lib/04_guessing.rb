@@ -24,19 +24,28 @@
 # You got it in 7 tries
 
 def guessing_game()
-  count = 0
-  number = 19
+  win = false
+  guess_count = 0
+  number = rand(100) + 1
 
-  if user_guess() > number
-    puts "The number is lower than #{guess}. Guess again"
-    count += 1
-    user_guess()
-  elsif user_guess() < number
-    puts "The number is higher than #{guess}. Guess again"
-    count += 1
-    user_guess()
-  elsif user_guess() == number
-    puts "You got it in #{count} tries"
-  end
+  puts "Guess a number between 1 and 100"
   
+  while !win
+    guess = gets.to_i
+
+    if guess > number then
+      guess_count += 1
+      puts "The number is lower than #{guess}. Guess again"
+    elsif guess < number then
+      guess_count += 1
+      puts "The number is higher than #{guess}. Guess again"
+    else
+      puts "You got it in #{guess_count} tires"
+      win = true
+    end
+
+  end
+
 end
+
+guessing_game()
